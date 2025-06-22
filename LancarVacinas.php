@@ -1,14 +1,132 @@
-<?php include("conexao.php"); ?>
+<?php include("conexao.php"); 
+
+$sqlFuncionarios = "SELECT id, nome FROM vacinados ORDER BY nome ASC";
+$resultFuncionarios = mysqli_query($conexao, $sqlFuncionarios);
+
+
+$sqlVacinas = "SELECT id, nome FROM vacinas";
+$resultVacinas = mysqli_query($conexao, $sqlVacinas);
+
+$sqlSetores = "SELECT id, nome_setor FROM setores";
+$resultSetor = mysqli_query($conexao, $sqlSetores);
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Lançar Vacinas - Vacina+</title>
-    <link rel="stylesheet" href="Css/CadastroVacinasFuncionarios.css">
     <link rel="stylesheet" href="Css/Padrao.css">
 </head>
 <body>
+     <style>
+       
+       .container-lancamentos {
+        min-width: 600px; /* de 480 para 600 */
+        width: 100%;
+        padding: 30px 40px;
+        }
+
+       h2 {
+        font-weight: 700;
+        font-size: 28px;
+        color: #222;
+        margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        }
+
+        form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #444;
+        font-size: 15px;
+        letter-spacing: 0.01em;
+        }
+
+        form select,
+        form input[type="date"],
+        form textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1.8px solid #d0d5dd;
+        border-radius: 10px;
+        font-size: 16px;
+        color: #333;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        font-family: inherit;
+        resize: vertical;
+        outline-offset: 2px;
+        }
+
+        form select:focus,
+        form input[type="date"]:focus,
+        form textarea:focus {
+        border-color: #4f46e5;
+        box-shadow: 0 0 8px rgba(79, 70, 229, 0.35);
+        outline: none;
+        }
+
+        form textarea {
+        min-height: 100px;
+        }
+
+        button {
+        margin-top: 30px;
+        width: 100%;
+        background-color: #4f46e5;
+        border: none;
+        padding: 16px 0;
+        border-radius: 12px;
+        font-size: 18px;
+        color: #fff;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+        background-color: #4338ca;
+        box-shadow: 0 8px 20px rgba(67, 56, 202, 0.6);
+        }
+
+        /* Responsividade */
+        @media (max-width: 520px) {
+        body {
+            padding: 20px 10px;
+        }
+
+        .container-lancamentos {
+            padding: 25px 20px;
+        }
+        }
+        
+        select:hover,
+        select:focus {
+        outline: none;
+        border-color: #4f46e5; /* a cor do foco que já tem no CSS moderno */
+        box-shadow: 0 0 8px rgba(79, 70, 229, 0.35);
+        background-color: white; /* manter o fundo branco */
+        }
+
+        /* Remove o destaque azul do botão do select no Chrome/Edge */
+        select::-ms-expand {
+        display: none;
+        }
+
+        /* Remove contorno azul no Firefox */
+        select:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+        }
+
+
+    </style>
+
 
 <?php include("header.php"); ?>
 
@@ -17,46 +135,44 @@
 
     <div class="conteudo">
         <main>
-            <div class="form-container">
-                <h3>Lançamento de Vacinas para Funcionários</h3>
-                <form method="POST" action="">
-                    <div class="form-group">
-                        <label for="funcionario">Funcionário:</label>
-                        <select name="id_funcionario" required>
+            <div class="container-lancamentos">
+                <h2>Lançamento de Vacina</h2>
+                    <form action="processa_vacina.php" method="POST">
+                        <label for="funcionario">Funcionário</label>
+                        <select name="funcionario_id" required>
                             <option value="">Selecione</option>
-                            <?php
-                            $sql_func = "SELECT id, nome FROM funcionarios ORDER BY nome";
-                            $res_func = mysqli_query($conexao, $sql_func);
-                            while ($row = mysqli_fetch_assoc($res_func)) {
-                                echo "<option value='{$row['id']}'>{$row['nome']}</option>";
-                            }
-                            ?>
+                            <?php while($row = mysqli_fetch_assoc($resultFuncionarios)): ?>
+                                <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option>
+                            <?php endwhile; ?>
                         </select>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="vacina">Vacina:</label>
-                        <select name="id_vacina" required>
+                        <label for="">Vacina</label>
+                        <select name="vacina_id" required>
                             <option value="">Selecione</option>
-                            <?php
-                            $sql_vac = "SELECT id, nome FROM vacinas ORDER BY nome";
-                            $res_vac = mysqli_query($conexao, $sql_vac);
-                            while ($row = mysqli_fetch_assoc($res_vac)) {
-                                echo "<option value='{$row['id']}'>{$row['nome']}</option>";
-                            }
-                            ?>
+                            <?php while($row = mysqli_fetch_assoc($resultVacinas)): ?>
+                                <option value="<?= $row['id']; ?>"><?= $row['nome']; ?></option>
+                            <?php endwhile; ?>
                         </select>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="data_aplicacao">Data de Aplicação:</label>
-                        <input type="date" name="data_aplicacao" required>
-                    </div>
-
-                    <button type="submit" name="lancar">Lançar Vacina</button>
-                </form>
-
+                        <label for="">Setor</label>
+                        <select name="setor_id" required>
+                            <option value="">Selecione</option>
+                            <?php while($row = mysqli_fetch_assoc($resultSetor)): ?>
+                                <option value="<?= $row['id']; ?>"><?= $row['nome_setor']; ?></option>
+                            <?php endwhile; ?>
+                        </select>
                 
+
+                        <label for="data_vacinacao">Data da Vacinação</label>
+                        <input type="date" name="data_vacinacao" required>
+
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea name="observacoes" rows="3"></textarea>
+
+                        <button type="submit">Lançar Vacina</button>
+                        
+                    </form>
+
             </div>
         </main>
     </div>

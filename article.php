@@ -7,7 +7,7 @@
                     <div class="dropdown" id="Container-cadastro">
                         <a href="CadastroFuncionarios.php">Cadastrar Funcionários</a>
                         <a href="CadastroVacinas.php">Cadastrar Vacinas</a>
-                        
+                        <a href="CadastroSetor.php">Cadastrar Setor</a>
                     </div>
                 </div>
 

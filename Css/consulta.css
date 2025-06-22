@@ -1,166 +1,77 @@
+.container-consulta {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
 
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #030E88;
+        }
 
-/* Busca */
-.search-container {
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 600px;
-}
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-.search-box {
-  display: flex;
-}
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
 
-.search-box input[type="text"] {
-  flex-grow: 1;
-  padding: 10px 14px;
-  font-size: 1rem;
-  border: 2px solid #007bff;
-  border-right: none;
-  border-radius: 8px 0 0 8px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
+        button {
+            padding: 10px 16px;
+            background-color: #030E88;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
 
-.search-box input[type="text"]:focus {
-  border-color: #0056b3;
-}
+        button:hover {
+            background-color: #020a60;
+        }
 
-.search-box button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  border: 2px solid #007bff;
-  border-radius: 0 8px 8px 0;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-.search-box button:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-/* Tabela */
-#tabela {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  table-layout: fixed; /* evita quebras estranhas */
-}
+        th {
+            background-color: #030E88;
+            color: white;
+        }
 
-#tabela thead {
-  background: #007bff;
-  color: white;
-}
+        tr:hover {
+            background-color: #f1f1f1;
+        }
 
-#tabela thead th {
-  padding: 12px 15px;
-  text-align: left;
-  font-weight: 600;
-  white-space: nowrap; /* evita quebra no cabeçalho */
-}
+        .acoes a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #030E88;
+            font-weight: bold;
+        }
 
-#tabela tbody tr {
-  border-bottom: 1px solid #ddd;
-  transition: background-color 0.3s ease;
-}
+        .acoes a:hover {
+            color: #ff0000;
+        }
 
-#tabela tbody tr:hover {
-  background-color: #f1faff;
-}
-
-#tabela tbody td {
-  padding: 8px 11px;
-  vertical-align: middle;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 200px; /* limita largura para colunas de texto */
-}
-
-/* Coluna ações */
-.actions {
-  white-space: nowrap;
-  max-width: 140px;
-}
-
-/* Botões da ação */
-.edit-btn, .delete-btn {
-  background-color: transparent;
-  border: 2px solid transparent;
-  padding: 6px 10px;
-  margin-right: 6px;
-  border-radius: 5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 60px;;
-}
-
-.edit-btn {
-  color: #007bff;
-  border-color: #007bff;
-}
-
-.edit-btn:hover {
-  background-color: #007bff;
-  color: white;
-}
-
-.delete-btn {
-  color: #dc3545;
-  border-color: #dc3545;
-}
-
-.delete-btn:hover {
-  background-color: #dc3545;
-  color: white;
-}
-
-/* Responsividade para telas pequenas */
-@media (max-width: 900px) {
-  #tabela thead {
-    display: none; /* Esconder cabeçalho para mobile */
-  }
-
-  #tabela, #tabela tbody, #tabela tr, #tabela td {
-    display: block;
-    width: 100%;
-  }
-
-  #tabela tr {
-    margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;
-  }
-
-  #tabela td {
-    text-align: right;
-    padding-left: 50%;
-    position: relative;
-    max-width: 100%;
-  }
-
-  #tabela td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 15px;
-    width: calc(50% - 30px);
-    white-space: nowrap;
-    font-weight: 600;
-    text-align: left;
-  }
-
-  .actions {
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .edit-btn, .delete-btn {
-    margin: 5px 5px 0 0;
-    min-width: unset;
-  }
-}
+        .no-data {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }

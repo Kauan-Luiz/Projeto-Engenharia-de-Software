@@ -1,49 +1,82 @@
-
-.form-container {
-      background-color: #fff;
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 40px;
-    }
-
-h3 {
-    text-align: center;
-    margin-bottom: 15px;
+.container-cadastro-vacinas{
+  min-width: 600px; /* de 480 para 600 */
+  width: 100%;
+  padding: 30px 40px;
 }
 
-.form-group {
-    display: flex;
-    margin-bottom: 20px;
-    align-items: center;
+h2 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
-    .form-group label {
-      width: 150px;
-      font-weight: bold;
-    }
+form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #444;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
 
-    .form-group input[type="text"],
-    .form-group input[type="number"],
-    .form-group input[type="date"] {
-      flex: 1;
-      padding: 0px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
 
-    button {
-      display: block;
-      margin: 30px auto 0;
-      padding: 12px 30px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+form input[type="date"],
+form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.8px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  font-family: inherit;
+  resize: vertical;
+  outline-offset: 2px;
+}
 
-    button:hover {
-      background-color: #45a049;
-    }
+
+form input[type="date"]:focus,
+form textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.35);
+  outline: none;
+}
+
+form textarea {
+  min-height: 100px;
+}
+
+button {
+  margin-top: 30px;
+  width: 100%;
+  background-color: #4f46e5;
+  border: none;
+  padding: 16px 0;
+  border-radius: 12px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #4338ca;
+  box-shadow: 0 8px 20px rgba(67, 56, 202, 0.6);
+}
+
+/* Responsividade */
+@media (max-width: 520px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .container {
+    padding: 25px 20px;
+  }
+}
+
