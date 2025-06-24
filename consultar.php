@@ -86,8 +86,8 @@ $resultado = $stmt->get_result();
                 <div class="container-consulta">
                     <h2>Consulta de Vacinas Lançadas</h2>
 
-                    <form method="GET" action="">
-                        <input type="text" name="buscar" placeholder="Buscar funcionário..." value="<?= htmlspecialchars($busca) ?>">
+                    <form method="GET" action="" class="form-buscar">
+                        <input type="text" name="buscar" placeholder="Buscar funcionário..." value="<?= htmlspecialchars($busca) ?>" id="input-buscar">
                         <button type="submit">Buscar</button>
                     </form>
 
@@ -100,7 +100,6 @@ $resultado = $stmt->get_result();
                                     <th>Vacina</th>
                                     <th>Setor</th>
                                     <th>Data</th>
-                                    <th>Observações</th>
                                     <th>Ações</th>
                                 </tr>
                             </thead>
@@ -112,7 +111,6 @@ $resultado = $stmt->get_result();
                                         <td><?= $row['vacina'] ?></td>
                                         <td><?= $row['nome_setor'] ?></td>
                                         <td><?= date('d/m/Y', strtotime($row['data_vacinacao'])) ?></td>
-                                        <td><?= $row['observacoes'] ?: '-' ?></td>
                                         <td class="acoes">
                                             <a href="editar_lancamento.php?id=<?= $row['id'] ?>">Editar</a> |
                                             <a href="excluir_lancamento.php?id=<?= $row['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>

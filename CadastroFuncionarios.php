@@ -20,7 +20,7 @@
         <div class="conteudo">
             <main>
                 <div class="container-cadastro-funcionario">
-                        <h3>Formulário de Funcionário</h3>
+                        <h2>Cadastro de Funcionário</h2>
                         <form action="salvar.php" method="post">
                         <div class="form-group">
                             <label for="nome">Nome:</label>

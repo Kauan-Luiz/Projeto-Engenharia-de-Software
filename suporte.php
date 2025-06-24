@@ -22,7 +22,7 @@
           
         <main>
              <div class="container-suporte">
-              <h1>Módulo de Suporte</h1>
+              <h2>Módulo de Suporte</h2>
 
               <form id="suporteForm">
                 <label for="tipo">Tipo de solicitação:</label>
@@ -35,9 +35,6 @@
 
                 <label for="descricao">Descrição detalhada:</label>
                 <textarea id="descricao" name="descricao" rows="6" placeholder="Descreva sua solicitação..." required></textarea>
-
-                <label for="email">Seu e-mail para contato:</label>
-                <input type="email" id="email" name="email" required />
 
                 <button type="submit">Enviar Solicitação</button>
               </form>

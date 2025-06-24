@@ -21,18 +21,13 @@
 
         <div class="conteudo">
             <main>
-                <div class="form-container">
-                    <h3>Cadastro de Setor</h3>
+                <div class="form-container-setor">
+                    <h2>Cadastro de Setor</h2>
                     <form action="salvarSetor.php" method="POST">
 
                     <div class="form-group">
                         <label for="nome">Nome do Setor:</label>
                         <input type="text" id="nome" name="nome_setor" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="descricao">Descrição:</label>
-                        <textarea id="descricao" name="descricao" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -45,10 +40,6 @@
                         <input type="email" id="email" name="email_setor">
                     </div>
 
-                    <div class="form-group">
-                        <label for="ramal">Ramal:</label>
-                        <input type="tel" id="ramal" name="ramal">
-                    </div>
 
                     <div class="form-group">
                         <label for="localizacao">Localização:</label>
@@ -59,13 +50,6 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="status">Status:</label>
-                        <select id="status" name="status">
-                        <option value="ativo">Ativo</option>
-                        <option value="inativo">Inativo</option>
-                        </select>
-                    </div>
 
                     <button type="submit">Cadastrar Setor</button>
                     </form>

@@ -1,14 +1,18 @@
 .container-suporte {
-  height: 450px;
+  height: 350px;
   width: 800px;
   margin: 0px auto;
   background: #ffffff;
   padding: 20px;
 }
 
-h1 {
+container-suporte h2 {
+  font-weight: 700;
+  font-size: 28px;
+  color: #222;
+  margin-bottom: 30px;
   text-align: center;
-  color: #333;
+  letter-spacing: 0.02em;
 }
 
 label {
@@ -25,19 +29,6 @@ input, select, textarea, button {
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 14px;
-}
-
-button {
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 .mensagem {

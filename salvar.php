@@ -6,14 +6,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cpf      = $_POST["cpf"];
     $telefone = $_POST["telefone"];
     $email    = $_POST["email"];
-    $setor    = $_POST["setor"];
     $vacinas  = isset($_POST["vacinas"]) ? implode(", ", $_POST["vacinas"]) : '';
 
-    $sql = "INSERT INTO vacinados (nome, cpf, telefone, email, setor, vacinas)
-            VALUES ('$nome', '$cpf', '$telefone', '$email', '$setor', '$vacinas')";
+    $sql = "INSERT INTO vacinados (nome, cpf, telefone, email, vacinas)
+            VALUES ('$nome', '$cpf', '$telefone', '$email', '$vacinas')";
 
     if ($conexao->query($sql) === TRUE) {
-        header("Location: consultar.php");
+        echo "<script>alert('Funcionario cadastrado com sucesso!'); window.location.href='CadastroFuncionarios.php';</script>";
         exit();
     } else {
         echo "Erro ao salvar: " . $conexao->error;

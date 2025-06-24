@@ -24,7 +24,7 @@
             <main>
                 <div class="container-cadastro-vacinas">
                     <div class="form-container">
-                        <h3>Cadastro de Vacinas</h3>
+                        <h2>Cadastro de Vacinas</h2>
                         <form method="POST" action="">
                             <div class="form-group">
                                 <label>Nome da Vacina:</label>
@@ -48,14 +48,12 @@
 
                             $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
                             $fabricante = mysqli_real_escape_string($conexao, $_POST['fabricante']);
-                            $dose = intval($_POST['dose']);
-                            $data_validade = $_POST['data_validade'];
-
+    
                             $sql = "INSERT INTO vacinas (nome, fabricante)
                                     VALUES ('$nome', '$fabricante')";
 
                             if (mysqli_query($conexao, $sql)) {
-                                echo "<p style='color: green;'>Vacina cadastrada com sucesso!</p>";
+                                echo "<script>alert('Vacina cadastrado com sucesso!'); window.location.href='CadastroVacinas.php';</script>";
                             } else {
                                 echo "<p style='color: red;'>Erro ao cadastrar: " . mysqli_error($conexao) . "</p>";
                             }

@@ -21,16 +21,14 @@ $setores = mysqli_query($conexao, "SELECT id, nome_setor FROM setores");
 <head>
     <meta charset="UTF-8">
     <title>Editar Lançamento</title>
+    <link rel="stylesheet" href="Css/padrao.css">
 </head>
 <body>
 
 <style>
 .container-editar{
-
-  min-width: 600px; /* de 480 para 600 */
-  width: 100%;
-  padding: 30px 40px;
-
+  width: 600px;
+  width: 100%; 
 
 }
 
@@ -52,32 +50,6 @@ form label {
   letter-spacing: 0.01em;
 }
 
-form select,
-form input[type="date"],
-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1.8px solid #d0d5dd;
-  border-radius: 10px;
-  font-size: 16px;
-  color: #333;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  font-family: inherit;
-  resize: vertical;
-  outline-offset: 2px;
-}
-
-form select:focus,
-form input[type="date"]:focus,
-form textarea:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 8px rgba(79, 70, 229, 0.35);
-  outline: none;
-}
-
-form textarea {
-  min-height: 100px;
-}
 
 button {
   margin-top: 30px;
@@ -159,7 +131,7 @@ select:-moz-focusring {
           
         <main>
           <div class="container-editar">
-            <h2>Editar Lançamento de Vacina</h2>
+
 
             <form action="atualiza_lancamento.php" method="POST">
                 <input type="hidden" name="id" value="<?= $lancamento['id'] ?>">
@@ -194,8 +166,7 @@ select:-moz-focusring {
                 <label>Data de Vacinação</label>
                 <input type="date" name="data_vacinacao" value="<?= $lancamento['data_vacinacao'] ?>" required>
 
-                <label>Observações</label>
-                <textarea name="observacoes" rows="3"><?= $lancamento['observacoes'] ?></textarea>
+
 
                 <button type="submit">Salvar Alterações</button>
             </form>

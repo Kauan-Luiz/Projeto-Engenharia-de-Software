@@ -24,14 +24,15 @@ $resultSetor = mysqli_query($conexao, $sqlSetores);
      <style>
        
        .container-lancamentos {
-        min-width: 600px; /* de 480 para 600 */
-        width: 100%;
-        padding: 30px 40px;
+        width: 600px;
+        width: 100%; 
+        
         }
 
        h2 {
+        
         font-weight: 700;
-        font-size: 28px;
+        font-size: 20px;
         color: #222;
         margin-bottom: 30px;
         text-align: center;
@@ -47,52 +48,7 @@ $resultSetor = mysqli_query($conexao, $sqlSetores);
         letter-spacing: 0.01em;
         }
 
-        form select,
-        form input[type="date"],
-        form textarea {
-        width: 100%;
-        padding: 14px 16px;
-        border: 1.8px solid #d0d5dd;
-        border-radius: 10px;
-        font-size: 16px;
-        color: #333;
-        transition: border-color 0.25s ease, box-shadow 0.25s ease;
-        font-family: inherit;
-        resize: vertical;
-        outline-offset: 2px;
-        }
-
-        form select:focus,
-        form input[type="date"]:focus,
-        form textarea:focus {
-        border-color: #4f46e5;
-        box-shadow: 0 0 8px rgba(79, 70, 229, 0.35);
-        outline: none;
-        }
-
-        form textarea {
-        min-height: 100px;
-        }
-
-        button {
-        margin-top: 30px;
-        width: 100%;
-        background-color: #4f46e5;
-        border: none;
-        padding: 16px 0;
-        border-radius: 12px;
-        font-size: 18px;
-        color: #fff;
-        font-weight: 700;
-        cursor: pointer;
-        box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        button:hover {
-        background-color: #4338ca;
-        box-shadow: 0 8px 20px rgba(67, 56, 202, 0.6);
-        }
+      
 
         /* Responsividade */
         @media (max-width: 520px) {
@@ -165,9 +121,6 @@ $resultSetor = mysqli_query($conexao, $sqlSetores);
 
                         <label for="data_vacinacao">Data da Vacinação</label>
                         <input type="date" name="data_vacinacao" required>
-
-                        <label for="observacoes">Observações (opcional)</label>
-                        <textarea name="observacoes" rows="3"></textarea>
 
                         <button type="submit">Lançar Vacina</button>
                         

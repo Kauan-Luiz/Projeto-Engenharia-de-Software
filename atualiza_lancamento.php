@@ -7,11 +7,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $vacina_id = $_POST['vacina_id'];
     $setor_id = $_POST['setor_id'];
     $data_vacinacao = $_POST['data_vacinacao'];
-    $observacoes = $_POST['observacoes'];
+   
 
-    $sql = "UPDATE lancamentos_vacinas SET funcionario_id = ?, vacina_id = ?, setor_id = ?, data_vacinacao = ?, observacoes = ? WHERE id = ?";
+    $sql = "UPDATE lancamentos_vacinas SET funcionario_id = ?, vacina_id = ?, setor_id = ?, data_vacinacao = ? WHERE id = ?";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("iiissi", $funcionario_id, $vacina_id, $setor_id, $data_vacinacao, $observacoes, $id);
+    $stmt->bind_param("iiiss", $funcionario_id, $vacina_id, $setor_id, $data_vacinacao, $id);
 
     if ($stmt->execute()) {
         echo "<script>alert('Lançamento atualizado com sucesso!'); window.location.href='consultar.php';</script>";
